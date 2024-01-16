@@ -8,11 +8,51 @@
     list-style: none;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+    color: white;
+    border: 1px solid black;
 }
 
 :root{
     --dark-gray: #242424;
-    --mediun-gray: #333333;
+    --medium-gray: #333333;
     --light-gray: #464646;
     --pink: #c61067;
+}
+
+body{
+    padding: 0 100px;
+    background-color: var(--dark-gray);
+}
+
+header{
+    display: flex;
+    align-items: center;
+    padding-top: 20px;
+}
+header .busca{
+    width: 500px;
+    position: relative;
+    margin-left: 26px;
+}
+header .busca input{
+    width: 100%;
+    height: 46px;
+    background-color: var(--medium-gray);
+    padding-left: 16px;
+    border-radius: 5px;
+    border: 2px solid var(--light-gray);
+    transition-duration: 300ms;
+}
+header .busca input:focus{
+    border-color: var(--pink);
+}
+header .busca box-icon{
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    fill: var(--light-gray);
+    cursor: pointer;
+}
+header .busca box-icon:hover{
+    fill: var(--pink);
 }
