@@ -18,7 +18,7 @@
     </header>
     <main>
         <section id="teams" class="container">
-            <h2>Teams <button><box-icon name='plus'></box-icon> novo team</button></h2>
+            <h2>Teams <button id="criarBtn"><box-icon name='plus'></box-icon> novo team</button></h2>
             <ul>
                 <li>
                     <h4>Nome do Team <box-icon name='show'></box-icon></h4>
@@ -104,7 +104,7 @@
         </section>
     </main>
     <div id="overlay"></div>
-    <form class="show">
+    <form id="formCriar">
         <h3>Criar <box-icon name="x"></box-icon></h3>
         <label for="nome">Nome do team</label>
         <input type="text" id="nome" required>
@@ -113,6 +113,7 @@
         <button type="submit">Criar</button> 
     </form>
     
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>]
+    <script src="js/index.js"></script>
 </body>
 </html>

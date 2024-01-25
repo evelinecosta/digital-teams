@@ -175,6 +175,13 @@ header .busca box-icon:hover{
         position: fixed;
         top: 0;
         left: 0;
+        opacity: 0;
+        visibility: hidden;
+        transition-duration: 200ms;
+    }
+    #overlay.show{
+        opacity: 1;
+        visibility: visible;
     }
 
     form{
