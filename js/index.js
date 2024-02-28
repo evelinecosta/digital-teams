@@ -1,4 +1,4 @@
-let teams = [];
+let teams = JSON.parse(localStorage.getItem("lista")) || [];
 
 criarBtn.onclick = () => {
     overlay.classList.add('show');
@@ -31,17 +31,24 @@ formCriar.onsubmit = () => {
             capacity: capacidade.value,
             members: []
     });
+    localStorage.setItem("lista", JSON.stringify(teams))
     adicionarCards();
     overlay.classList.remove('show');
     formCriar.classList.remove('show');
-}
+    }
 }
 
 formParticipante.onsubimit = () => {
-    event.preventDefault ();
-    teams[Number(teamID.value)].members.push(nomeParticipante.value);
-    alert("Participante inserido com sucesso");
-    formParticipante.reset()
+    event.preventDefault();
+    if(teams[Number(teamID.value)].members.length == teams[Number(teamID.value)].capacity){
+        alert('Capacidade máxima atingida')
+    }else{
+        teams[Number(teamID.value)].members.push(nomeParticipante.value);
+        localStorage.setItem("lista", JSON.stringify(teams));
+        alert("Participante inserido com sucesso!");
+        formParticipante.reset();
+        adicionarCards();
+    }
 }
 
 function adicionarCards(){
@@ -64,6 +71,8 @@ function adicionarCards(){
     }
 }
 
+adicionarCards();
+
 function removerCard(indice){
     let listaAuxiliar = [];
     for(let i = 0; i < teams.length; i++){
@@ -72,6 +81,7 @@ function removerCard(indice){
         }
     }
     teams = listaAuxiliar;
+    localStorage.setItem("lista", JSON.stringify(teams));
     adicionarCards();
 }
 
@@ -89,4 +99,8 @@ function mostrarformParticipante(indice){
     overlay.classList.add("show");
     formParticipante.classList.add("show");
     teamID.value = indice;
+}
+
+function mostrarParticipantes(indice){
+    alert(teams[indice].members)
 }
